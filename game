@@ -1,0 +1,153 @@
+#include <iostream>
+#include <ctime>
+#include <cstdlib>
+#include <windows.h>
+
+using namespace std;
+
+string a[] = {"rock","paper","scissor"};
+
+string playerChoiceString;
+
+int playerChoiceInteger;
+
+string botChoiceInteger;
+
+string playerChoice;
+
+int random;
+
+int PlayAgain;
+
+int numberOfPlayers;
+
+void checkWin(){
+if (botChoiceInteger == playerChoiceString){
+    Sleep(1000);
+    cout << "\n";
+    cout << "tie!!!! ahah!!!";
+    cout << "\n";
+}
+else if (playerChoiceString == "rock" && botChoiceInteger == "scissor" || playerChoiceString == "scissor" && botChoiceInteger == "paper" || playerChoiceString == "paper" && botChoiceInteger == "rock"){
+    cout << "\n";
+    cout << "u.....\n";
+    Sleep(1000);
+    cout << "WON!\n";
+    cout << "\n";
+
+}
+else {
+    cout << "\n";
+    cout << "u.....\n";
+    Sleep(1000);
+    cout << "lost :(\n";
+    cout << "\n";
+
+}
+
+
+}
+
+    void randomChoice(){
+
+    int max = 3;
+
+    srand(time(0));
+
+    random = rand()%max + 1;
+
+    if (random == 1){ //rock
+    cout << " \n";
+
+	cout << "ur enemy picked rock!\n";
+
+	botChoiceInteger = "rock";
+
+	}
+	else if (random == 2){ //paper
+
+    cout << " \n";
+
+    cout << "ur enemy picked paper!\n";
+
+    botChoiceInteger = "paper";
+
+
+	}
+	else if (random == 3){ //scissor
+
+        cout << "\n";
+
+	    cout << "ur enemy picked scissor!\n";
+
+	    botChoiceInteger = "scissor";
+	}
+
+
+}
+
+void game(){
+
+    Sleep(5000);
+
+    randomChoice();
+
+    checkWin();
+
+}
+
+    void player(){
+
+        cout << " \n";
+        cout << "well! what do you want to pick? rock? paper? or scissor?\n";
+        cout << " \n";
+        cin >> playerChoiceString;
+        cout << " \n";
+        if (playerChoiceString == a[0]){
+            cout << "ahhh, good choice!\n";
+            Sleep(1000);
+            cout << " \n";
+            cout << "da rock! da strongest! lets see what ur friend picks\n";
+            playerChoiceInteger = 1;
+            game();
+
+        }
+        else if (playerChoiceString == a[1]){
+            cout << "ahhh, good choice!\n";
+            cout << " \n";
+            cout << "da paper! da most flexiable! lets see what ur friend picks\n";
+            playerChoiceInteger = 2;
+            game();
+        }
+
+        else if (playerChoiceString == a[2]){
+            cout << "ahhh, good choice!\n";
+            cout << " \n";
+            cout << "da scissor! da sharpest! lets see what ur friend picks\n";
+            playerChoiceInteger = 3;
+            game();
+        }
+        else {
+            cout << "idk what ur problem is, but u did not say any of the choices above\n";
+            player();
+        }
+
+
+    }
+
+
+
+
+
+
+int main(){
+
+    cout << "welcome to jasons project, rock pape and scisor!\n";
+
+    cout << "\n";
+
+    Sleep(1000);
+    player();
+
+}
+
