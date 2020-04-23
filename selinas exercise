@@ -1,0 +1,65 @@
+#include <iostream>
+#include <ctime>
+#include <cstdlib>
+
+using namespace std;
+
+string workOut[] = {"pushups","plank","wall sit", "plank", "v-ups", "squats", "burpees", "pushups", "single leg hip thurst", "wall sit", "jumping jacks"};
+string decisionWork[] = {"yes", "no"};
+
+void rollDice(){
+
+string decisionWorkout;
+int max = 6;
+
+srand(time(0));
+
+int diceOne = rand()%max + 1;
+int diceTwo = rand()%max + 1;
+int diceThree = rand()%max + 1;
+
+
+cout << "___\n";
+cout << "|" << diceOne <<  "|\n";
+cout << "___\n";
+
+cout << "___\n";
+cout << "|" << diceTwo <<  "|\n";
+cout << "___\n";
+
+cout << "___\n";
+cout << "|" << diceThree <<  "|\n";
+cout << "___\n";
+
+int x = diceOne + diceTwo;
+int n = diceThree * 10;
+cout << "\n";
+cout << "you'll be doing " << workOut[x] << " and you'll be doing " << n << " of them\n";
+
+cout << "\n";
+cout << "\n";
+cout << "\n";
+
+cout << "go again??\n";
+
+cin >> decisionWorkout;
+
+if (decisionWorkout == decisionWork[0]){
+    rollDice();
+}
+else if(decisionWorkout == decisionWork[1]){
+    cout << "goodbye!";
+}
+
+
+
+}
+
+int main(){
+
+cout << "wow here we go!\n";
+cout << "lets work out!!!\n";
+
+rollDice();
+
+}
